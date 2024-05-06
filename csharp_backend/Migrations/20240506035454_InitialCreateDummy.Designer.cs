@@ -10,7 +10,7 @@ using csharp_backend;
 namespace csharp_backend.Migrations
 {
     [DbContext(typeof(LabsContext))]
-    [Migration("20240506030723_InitialCreateDummy")]
+    [Migration("20240506035454_InitialCreateDummy")]
     partial class InitialCreateDummy
     {
         /// <inheritdoc />
@@ -27,6 +27,7 @@ namespace csharp_backend.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(512)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -35,6 +36,7 @@ namespace csharp_backend.Migrations
 
                     b.Property<string>("Value")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.HasKey("DummyId");

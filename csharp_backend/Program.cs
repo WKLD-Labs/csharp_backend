@@ -1,4 +1,6 @@
 
+using Microsoft.EntityFrameworkCore;
+
 namespace csharp_backend
 {
     public class Program
@@ -14,6 +16,9 @@ namespace csharp_backend
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Register LabsContext service
+            builder.Services.AddDbContext<LabsContext>();
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -22,6 +27,8 @@ namespace csharp_backend
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            
 
             app.UseHttpsRedirection();
 

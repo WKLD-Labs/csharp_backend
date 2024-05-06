@@ -24,6 +24,7 @@ namespace csharp_backend.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(512)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
@@ -32,6 +33,7 @@ namespace csharp_backend.Migrations
 
                     b.Property<string>("Value")
                         .IsRequired()
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.HasKey("DummyId");
