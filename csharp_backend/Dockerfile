@@ -15,7 +15,7 @@ COPY . .
 WORKDIR "/src/csharp_backend"
 RUN dotnet tool install --global dotnet-ef
 RUN dotnet build "./csharp_backend.csproj" -c $BUILD_CONFIGURATION -o /app/build
-RUN dotnet ef database update
+RUN /root/.dotnet/tools/dotnet-ef database update
 
 
 FROM build AS publish
