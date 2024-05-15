@@ -18,6 +18,7 @@ RUN dotnet build "./csharp_backend.csproj" -c $BUILD_CONFIGURATION -o /app/build
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
 RUN dotnet publish "./csharp_backend.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet tool install --global dotnet-ef
 
 FROM base AS final
 WORKDIR /app
